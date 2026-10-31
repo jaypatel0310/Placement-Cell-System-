@@ -1,0 +1,33 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Master.cs" Inherits="PlacementDashboard.SiteMaster" %>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8" />
+    <title>Placement Cell Dashboard</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+<form id="form1" runat="server">
+    <div class="top"><h1>Placement Cell Dashboard</h1></div>
+    <nav>
+        <a href="Default.aspx">Dashboard</a>
+        <a href="Students.aspx">Students</a>
+        <a href="Companies.aspx">Companies</a>
+        <a href="Placements.aspx">Placements</a>
+        <a href="Report.aspx">Report</a>
+        <asp:HyperLink ID="lnkCrystal" runat="server" NavigateUrl="~/CrystalReport.aspx" Visible="false">Crystal Report</asp:HyperLink>
+    </nav>
+    <div class="container">
+        <asp:Panel ID="pnlError" runat="server" Visible="false" CssClass="err">
+            <b>Database connection problem</b><br />
+            <asp:Label ID="lblDbError" runat="server" /><br /><br />
+            Fix: open <code>Web.config</code>, correct the <code>Data Source=</code> value (see README.txt, Step 5), then refresh.
+        </asp:Panel>
+        <asp:Panel ID="pnlContent" runat="server">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
+        </asp:Panel>
+    </div>
+</form>
+</body>
+</html>
